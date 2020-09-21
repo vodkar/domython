@@ -5,6 +5,7 @@
 __author__ = "vodkar"
 
 from typing import Union
+from uuid import uuid4
 
 
 class Key:
@@ -13,6 +14,10 @@ class Key:
 
     def __init__(self, key: Union[str, int]):
         self._key = str(key)
+
+    @classmethod
+    def generate_key(cls):
+        return cls(str(uuid4()))
 
     @property
     def key(self) -> str:
